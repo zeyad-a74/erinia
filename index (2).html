@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neon Glowing Heart</title>
+    <style>
+        /* إعدادات أساسية */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #000000;
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+            color: white;
+            position: relative;
+        }
+
+        /* الحاوية الخاصة بالقلب */
+        .heart-container {
+            position: absolute;
+            width: 150%;
+            height: 150%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            background-image: url('https://i.pinimg.com/736x/59/48/02/594802db46b2ce6bc8d7e1ec7ef1bf00.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            z-index: -1;
+            animation: rotateBg 15s linear infinite, motionBlurEffect 4s infinite;
+        }
+
+        @keyframes rotateBg {
+            0% {
+                transform: rotate(0deg) scale(1.5);
+            }
+            100% {
+                transform: rotate(360deg) scale(1.5);
+            }
+        }
+
+        @keyframes motionBlurEffect {
+            0%, 49.9% {
+                filter: blur(0px);
+            }
+            50% {
+                filter: blur(10px);
+            }
+            50.3%, 100% {
+                filter: blur(0px);
+            }
+        }
+
+        /* النص المتحرك */
+        .text-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            align-items: center;
+            font-size: 40px;
+            font-weight: bold;
+        }
+
+        .name {
+            opacity: 0;
+            position: relative;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0);
+        }
+
+        .zeyad {
+            color: #D4F1F9; /* لون ثلجي */
+            animation: slideDown 1s ease-out forwards, iceGlow 2s infinite alternate;
+        }
+
+        .alav {
+            color: #9b59b6; /* لون أحمر داكن قوي */
+            animation: slideUp 1s ease-out 0.5s forwards, redGlow 2s infinite alternate;
+        }
+
+        .and {
+            color: #9b59b6; /* لون القلب البنفسجي */
+            animation: fadeIn 1s ease-out 1s forwards;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* تأثير التوهج على الأسماء */
+        @keyframes iceGlow {
+            0% {
+                text-shadow: 0 0 10px #D4F1F9, 0 0 20px #D4F1F9, 0 0 30px #D4F1F9;
+            }
+            100% {
+                text-shadow: 0 0 20px #A0E8FF, 0 0 40px #A0E8FF, 0 0 60px #A0E8FF;
+            }
+        }
+
+        @keyframes redGlow {
+            0% {
+                text-shadow: 0 0 10px #B30000, 0 0 20px #B30000, 0 0 30px #B30000;
+            }
+            100% {
+                text-shadow: 0 0 20px #FF0000, 0 0 40px #FF0000, 0 0 60px #FF0000;
+            }
+        }
+
+        /* تصميم القلب */
+        .heart {
+            fill: none;
+            stroke: #9b59b6;
+            stroke-width: 4;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            filter: drop-shadow(0 0 30px #9b59b6);
+            animation: heartGlow 2s ease-in-out infinite;
+        }
+
+        @keyframes heartGlow {
+            0% {
+                stroke: #9b59b6;
+                filter: drop-shadow(0 0 10px #9b59b6);
+            }
+            50% {
+                stroke: #9b59b6;
+                filter: drop-shadow(0 0 40px #9b59b6);
+            }
+            100% {
+                stroke: #9b59b6;
+                filter: drop-shadow(0 0 10px #9b59b6);
+            }
+        }
+
+        svg {
+            width: 150vw;
+            height: 150vh;
+            max-height: 100vh;
+            max-width: 100vw;
+            display: block;
+            animation: heartGlow 2s ease-in-out infinite;
+            background-color: transparent;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="heart-container"></div>
+
+    <svg viewBox="0 0 100 100">
+        <path class="heart" d="M50 80s30-22 30-35c0-9-7-17-17-17-6 0-11 3-14 7-2-4-8-7-14-7-10 0-17 8-17 17 0 13 30 35 30 35z" />
+    </svg>
+    
+    <div class="text-container">
+        <div class="name zeyad">erinia</div>
+        <div class="name and"> </div>
+        <div class="name alav"></div>
+    </div>
+
+</body>
+
+</html>
